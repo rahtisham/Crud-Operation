@@ -5,22 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Task Management System') }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         <!-- <link rel="stylesheet" href="{{ mix('css/app.css"> -->
-        <link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
-        <link href="assets/plugins/fullcalendar/vanillaCalendar.css" rel="stylesheet" type="text/css"  />
+        <link href="http://127.0.0.1:8000/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
+        <link href="http://127.0.0.1:8000/assets/plugins/fullcalendar/vanillaCalendar.css" rel="stylesheet" type="text/css"  />
         
-        <link href="assets/plugins/morris/morris.css" rel="stylesheet">
+        <link href="http://127.0.0.1:8000/assets/plugins/morris/morris.css" rel="stylesheet">
 
 
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="http://127.0.0.1:8000/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="http://127.0.0.1:8000/assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="http://127.0.0.1:8000/assets/css/style.css" rel="stylesheet" type="text/css">
 
         @livewireStyles
 
@@ -31,6 +31,172 @@
         <x-jet-banner />
         <header id="topnav">
             
+          <div class="topbar-main">
+                <div class="container-fluid">
+
+                    <!-- Logo container-->
+                    <div class="logo">
+                        <!-- Text Logo -->
+                        <!--<a href="index.html" class="logo">-->
+                        <!--Zoter-->
+                        <!--</a>-->
+                        <!-- Image Logo -->
+                        <a href="index.html" class="logo">
+                            <img src="http://127.0.0.1:8000/assets/images/logo.png" alt="" class="logo-large">
+                        </a>
+
+                    </div>
+                    <!-- End Logo container-->
+
+
+                    <div class="menu-extras topbar-custom">
+
+                        <ul class="list-inline float-right mb-0">
+                            <li class="list-inline-item hide-phone app-search">
+                                <form role="search" class="">
+                                    <input type="text" placeholder="Search..." class="form-control">
+                                    <a href=""><i class="fa fa-search"></i></a>
+                                </form>
+                            </li>
+                            <!-- language-->
+                            <li class="list-inline-item dropdown notification-list hide-phone">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="false" aria-expanded="false">
+                                    <img src="http://127.0.0.1:8000/assets/images/flags/us_flag.jpg" class="ml-2" height="16" alt=""/>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right language-switch">
+                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/italy_flag.jpg" alt="" height="16"/><span> Italian </span></a>
+                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="16"/><span> French </span></a>
+                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="16"/><span> Spanish </span></a>
+                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/russia_flag.jpg" alt="" height="16"/><span> Russian </span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="true">
+                                    <i class="ti-email noti-icon"></i>
+                                    <span class="badge badge-danger noti-icon-badge">5</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg" style="position: absolute; transform: translate3d(-222px, 70px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5><span class="badge badge-danger float-right">745</span>Messages</h5>
+                                    </div>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon"><img src="assets/images/users/avatar-2.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
+                                        <p class="notify-details"><b>Charles M. Jones</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon"><img src="assets/images/users/avatar-3.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
+                                        <p class="notify-details"><b>Thomas J. Mimms</b><small class="text-muted">You have 87 unread messages</small></p>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon"><img src="assets/images/users/avatar-4.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
+                                        <p class="notify-details"><b>Luis M. Konrad</b><small class="text-muted">It is a long established fact that a reader will</small></p>
+                                    </a>
+
+                                    <!-- All-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        View All
+                                    </a>
+
+                                </div>
+                            </li>
+
+                            <!-- notification-->
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <i class="ti-bell noti-icon"></i>
+                                    <span class="badge badge-success noti-icon-badge">21</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5>Notification (3)</h5>
+                                    </div>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+                                        <p class="notify-details"><b>Your order is placed</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
+                                        <p class="notify-details"><b>New Message received</b><small class="text-muted">You have 87 unread messages</small></p>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-martini"></i></div>
+                                        <p class="notify-details"><b>Your item is shipped</b><small class="text-muted">It is a long established fact that a reader will</small></p>
+                                    </a>
+
+                                    <!-- All-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        View All
+                                    </a>
+
+                                </div>
+                            </li>
+                            <!-- User-->
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <img src="http://127.0.0.1:8000/assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5>Welcome</h5>
+                                    </div>
+                                    <a class="dropdown-item" href="{{ route('profile.show') }}"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5 text-muted"></i> My Wallet</a>
+                                    <a class="dropdown-item" href="#"><span class="badge badge-success float-right">5</span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#"> 
+                                    <form method="POST" action="{{ route('logout') }}">
+                                    @csrf 
+                                    <x-jet-dropdown-link href="{{ route('logout') }}"
+                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    <i class="mdi mdi-logout m-r-5 text-muted"></i>{{ __('Log Out') }}
+                                    </x-jet-dropdown-link>
+                                    </form>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="menu-item list-inline-item">
+                                <!-- Mobile menu toggle-->
+                                <a class="navbar-toggle nav-link">
+                                    <div class="lines">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                                <!-- End mobile menu toggle-->
+                            </li>
+
+                        </ul>
+                        
+                    </div>
+                    <!-- end menu-extras -->
+
+                    <div class="clearfix"></div>
+
+                </div> <!-- end container -->
+            </div>
+            <!-- end topbar-main -->
 
             <!-- MENU Start -->
             <div class="navbar-custom">
@@ -40,16 +206,17 @@
                         <ul class="navigation-menu text-center">
 
                             <li class="has-submenu ">
-                                <a href="index.html"><i class="mdi mdi-airplay"></i>Dashboard</a>
+                                <a href="{{ route('dashboard') }}"><i class="mdi mdi-airplay"></i>Dashboard</a>
                             </li>
 
                             <li class="has-submenu ">
-                                <a href="#"><i class="mdi mdi-layers"></i>Advanced UI</a>
+                                <a href="#"><i class="mdi mdi-layers"></i>Department</a>
                                 <ul class="submenu">
-                                    <li><a href="advanced-highlight.html">Highlight</a></li>
-                                    <li><a href="advanced-rating.html">Rating</a></li>
-                                    <li><a href="advanced-alertify.html">Alertify</a></li>
-                                    <li><a href="advanced-rangeslider.html">Range Slider</a></li>
+                                    <li><a href="{{ route('registration') }}">Users Registration</a></li>
+                                    <li><a href="{{ route('admin') }}">Admin</a></li>
+                                    <li><a href="{{ route('developer') }}">Developer</a></li>
+                                    <li><a href="{{ route('designers') }}">Designer</a></li>
+                                    <li><a href="{{ route('client') }}">Client</a></li>
                                 </ul>
                             </li>
 
@@ -210,23 +377,23 @@
     </body>
 </html>
  <!-- jQuery  -->
-       <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
+       <script src="http://127.0.0.1:8000/assets/js/jquery.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/popper.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/bootstrap.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/modernizr.min.js"></script>
         <!-- <script src="assets/js/waves.js')"></script> -->
-        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/jquery.nicescroll.js"></script>
 
-        <script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-        <script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="http://127.0.0.1:8000/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
         
-        <script src="assets/plugins/skycons/skycons.min.js"></script>
-        <script src="assets/plugins/fullcalendar/vanillaCalendar.js"></script>
-        <script src="assets/plugins/raphael/raphael-min.js"></script>
-        <script src="assets/plugins/morris/morris.min.js"></script> 
+        <script src="http://127.0.0.1:8000/assets/plugins/skycons/skycons.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/plugins/fullcalendar/vanillaCalendar.js"></script>
+        <script src="http://127.0.0.1:8000/assets/plugins/raphael/raphael-min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/plugins/morris/morris.min.js"></script> 
          
-        <script src="assets/pages/dashborad.js"></script>
+        <script src="http://127.0.0.1:8000/assets/pages/dashborad.js"></script>
 
 
         <!-- App js -->
-        <script src="assets/js/app.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/app.js"></script>
