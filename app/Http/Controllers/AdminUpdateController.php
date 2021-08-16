@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AdminAddModel;
+use app\Models\User;
 
 class AdminUpdateController extends Controller
 {
@@ -19,4 +20,20 @@ class AdminUpdateController extends Controller
     {
         dd($id);
     }
+
+
+     // Functaionalities are used for edit Admin
+     public function Student_edit_view($id)
+     {
+         $developerEditView = User::where('id' , $id)->first();
+         return view('Admin.student-edit-view' , compact($developerEditView , 'id'));
+     }
+
+     
+    public function Teacher_edit_view($id)
+    {
+        $developerEditView = User::where('id' , $id)->first();
+        return view('Admin.teacher-edit-view' , compact($developerEditView , 'id'));
+    }
+
 }

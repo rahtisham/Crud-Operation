@@ -47,7 +47,7 @@
                                             </thead>
                                             <tbody>
 
-                                                @foreach($designer as $row)
+                                                @foreach($teacher as $row)
                                                 <tr>
                                                 <td>{{ $row->name }}</td>
                                                 <td>{{ $row->email }}</td>
@@ -55,9 +55,9 @@
                                                 <td>{{ $row->created_at }}</td>
                                                 <td>{{ $row->updated_at }}</td>
                                                 <td>
-                                                    <a href="{{ route('designer.eidt.view' , ['id' => $row->id]) }}" type="button" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
+                                                    <a href="{{ route('teacher.eidt.view' , ['id' => $row->id]) }}" type="button" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
                                                     <a href="#" type="button" class="tabledit-edit-button btn btn-sm btn-danger" style="float: none; margin: 5px;"><span class="ti-trash"></span></a>
-                                                    <form action="{{ route('designer.delete' , ['id' => $row->id]) }}"
+                                                    <form action="{{ route('teacher.delete' , ['id' => $row->id]) }}"
                                                         method="post" class="d-inline" onsubmit="return confirm('Are you sure! you want to delete this user')" >
                                                         @method('delete')
                                                         @csrf

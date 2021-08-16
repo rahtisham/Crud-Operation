@@ -46,7 +46,7 @@
                                             </tr>
                                            </thead>
                                             <tbody>
-                                                @foreach($developers as $row)
+                                                @foreach($student as $row)
                                                     <tr>
                                                         <td>{{ $row->name }}</td>
                                                         <td>{{ $row->email }}</td>
@@ -54,9 +54,9 @@
                                                         <td>{{ $row->created_at }}</td>
                                                         <td>{{ $row->updated_at }}</td>
                                                         <td>
-                                                            <a href="{{ route('developer.edit.view' , ['id' => $row->id]) }}" type="button" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
+                                                            <a href="{{ route('student.edit.view' , ['id' => $row->id]) }}" type="button" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
                                                             <a href="#" type="button" class="tabledit-edit-button btn btn-sm btn-danger" style="float: none; margin: 5px;"><span class="ti-trash"></span></a>
-                                                            <form action="{{ route('developer.delete' , ['id' => $row->id]) }}"
+                                                            <form action="{{ route('student.delete' , ['id' => $row->id]) }}"
                                                                 method="post" class="d-inline" onsubmit="return confirm('Are you sure! you want to delete this user')" >
                                                                 @method('delete')
                                                                 @csrf

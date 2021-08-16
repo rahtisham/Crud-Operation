@@ -36,9 +36,9 @@
                                    <p>{{ \Session::get('success') }}</p>
                                 </div>
                             @endif
-                            <br><br>
+                            <br>
                             <div class="card-body">
-                               <h4 class="page-title">New Client</h4><br><br>
+                               <h4 class="page-title">New Client</h4><br>
                                 <form method="post" action="{{ route('add.clients.listening') }}">
                                     @csrf
                                     <h6 class="sub-title">Client Name</h6>

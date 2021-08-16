@@ -26,16 +26,16 @@ class AdminController extends Controller
         return view('Admin.admin' , compact('admin'));
     }// Admin view Funciton
 
-    public function Developers(Request $request)
+    public function Student(Request $request)
     {
-        $developers = User::all()->where('name' , 'Developer');
-        return view('Admin.developer' , compact('developers'));
+        $student = User::all()->where('name' , 'Student');
+        return view('Admin.student' , compact('student'));
     }// Developer view Funciton
 
-    public function Designers(Request $request)
+    public function Teacher(Request $request)
     {
-        $designer = User::all()->where('name' , 'Designers');
-        return view('Admin.designer' , compact('designer'));
+        $teacher = User::all()->where('name' , 'Teacher');
+        return view('Admin.teacher' , compact('teacher'));
     }// Designers view Funciton
 
     public function Registration()
@@ -54,7 +54,7 @@ class AdminController extends Controller
 
 
 
-    //////////////////////////////////////////////////////////////////// Functaionalities are used for edit Admin
+    // Functaionalities are used for edit Admin
 
     public function add_Client()
     {
@@ -65,18 +65,8 @@ class AdminController extends Controller
 
 
 
-    //////////////////////////////////////////////////////////////////// Functaionalities are used for edit Admin
-    public function Developers_edit_view($id)
-    {
-        $developerEditView = User::where('id' , $id)->first();
-        return view('Admin.developer-edit-view' , compact($developerEditView , 'id'));
-    }
+   
 
-    public function Designer_edit_view($id)
-    {
-        $developerEditView = User::where('id' , $id)->first();
-        return view('Admin.designer-edit-view' , compact($developerEditView , 'id'));
-    }
 
 
 }

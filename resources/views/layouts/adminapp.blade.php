@@ -212,10 +212,9 @@
                             <li class="has-submenu ">
                                 <a href="#"><i class="mdi mdi-layers"></i>Department</a>
                                 <ul class="submenu">
-                                    <li><a href="{{ route('registration') }}">Users Registration</a></li>
                                     <li><a href="{{ route('admin') }}">Admin</a></li>
-                                    <li><a href="{{ route('developer') }}">Developer</a></li>
-                                    <li><a href="{{ route('designers') }}">Designer</a></li>
+                                    <li><a href="{{ route('student') }}">Student</a></li>
+                                    <li><a href="{{ route('teacher') }}">Teacher</a></li>
                                     <li><a href="{{ route('client') }}">Client</a></li>
                                 </ul>
                             </li>
@@ -317,7 +316,11 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-google-pages"></i>Pages</a>
+                                <a href="{{ route('registration') }}"><i class="mdi mdi-google-pages"></i>Registration</a>
+                            </li>
+
+                            <li class="has-submenu">
+                                <a href="#"><i class="mdi mdi-google-pages"></i>Registration</a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>

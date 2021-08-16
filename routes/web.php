@@ -35,18 +35,19 @@ Route::group(['middleware' => 'auth'] , function(){
   Route::get('admin/admin' , [AdminController::class , 'Admin'])->name('admin');
   // This is developer view route
   
-  Route::get('admin/developer' , [AdminController::class , 'Developers'])->name('developer');
-  Route::get('admin/developer-edit-view/{id}/edit' , [AdminController::class , 'Developers_edit_view'])->name('developer.edit.view');
-  Route::get('admin/developer/{id}/delete' , [AdminController::class , 'Developers_delete'])->name('developer.delete');
+  Route::get('admin/student' , [AdminController::class , 'Student'])->name('student');
+  Route::get('admin/student-edit-view/{id}/edit' , [AdminUpdateController::class , 'Student_edit_view'])->name('student.edit.view');
+  Route::get('admin/student/{id}/delete' , [AdminController::class , 'Student_delete'])->name('student.delete');
   // This is developer view route
 
-  Route::get('admin/designers' , [AdminController::class , 'Designers'])->name('designers');
-  Route::get('admin/designer-edit-view/{id}/edit' , [AdminController::class , 'Designer_edit_view'])->name('designer.eidt.view');
-  Route::get('admin/designer/{id}/delete' , [AdminController::class , 'Designer_delete'])->name('designer.delete');
+  Route::get('admin/teacher' , [AdminController::class , 'Teacher'])->name('teacher');
+  Route::get('admin/teacher-edit-view/{id}/edit' , [AdminUpdateController::class , 'Teacher_edit_view'])->name('teacher.eidt.view');
+  Route::get('admin/teacher/{id}/delete' , [AdminController::class , 'Teacher_delete'])->name('teacher.delete');
    // This is designer view route
 
    Route::get('admin/clients' , [AdminController::class , 'Client'])->name('client');
    Route::get('admin/add-clients' , [AdminController::class , 'add_Client'])->name('add.clients');
+   Route::post('admin/add-clients.listening' , [AdminAddController::class , 'add_Client_listening'])->name('add.clients.listening');
    Route::get('admin/{id}/client-edit-view' , [AdminUpdateController::class , 'client_edit_View'])->name('client.edit.view');
    Route::post('admin/update.client.listing' , [AdminAddController::class , 'Update_client_listing'])->name('update.client.listing');
 
