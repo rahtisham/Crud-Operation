@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AdminAddModel;
+use App\Models\ClassAdd;
+use App\Models\subjects;
 
 class AdminAddController extends Controller
 {
@@ -45,6 +47,47 @@ class AdminAddController extends Controller
 
   /* Add client information at once to connect project tables */
 
+
+  public function add_Class_listing(Request $request)
+  {
+      $this->validate($request , [
+           
+          'className' => 'required'
+
+      ]);
+
+      $classAdds = new ClassAdd([
+
+        'className' => $request->get('className')
+
+      ]);
+
+      $classAdds->save();
+
+      return back()->with('success' , 'Class has been Submited');
+
+  }
+
+  public function add_Subjects_listing(Request $request)
+  {
+     $this->validate($request , [
+
+        'classNumber' => 'required',
+        'subject' => 'required'
+
+     ]);
+
+     $addSubject = new subjects([
+
+        'classID' => $request->get('classNumber'),
+        'subject' => $request->get('subject')
+
+     ]);
+
+     $addSubject->save();
+
+     return back()->with('success' , 'Subject has submited');
+  }
 
 
 }

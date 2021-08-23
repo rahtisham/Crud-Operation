@@ -32,7 +32,7 @@
                                             <div class="col-9 align-self-center text-right">
                                                 <div class="m-l-10">
                                                     <h5 class="mt-0">18090</h5>
-                                                    <p class="mb-0 text-muted">Visits Today <span class="badge bg-soft-success"><i class="mdi mdi-arrow-up"></i>2.35%</span></p>
+                                                    <p class="mb-0 text-muted">Students <span class="badge bg-soft-success"><i class="mdi mdi-arrow-up"></i>2.35%</span></p>
                                                 </div>
                                             </div>                                                                                          
                                         </div>
@@ -55,7 +55,7 @@
                                             <div class="col-9 text-right align-self-center">
                                                 <div class="m-l-10 ">
                                                     <h5 class="mt-0">562</h5>
-                                                    <p class="mb-0 text-muted">New Users</p>
+                                                    <p class="mb-0 text-muted">Teachers</p>
                                                 </div>
                                             </div>                                                                                                                
                                         </div>
@@ -79,7 +79,7 @@
                                             <div class="col-9 align-self-center text-right">
                                                 <div class="m-l-10 ">
                                                     <h5 class="mt-0">7514</h5>
-                                                    <p class="mb-0 text-muted">New Orders</p>
+                                                    <p class="mb-0 text-muted">Admin</p>
                                                 </div>
                                             </div>                                                                
                                         </div>

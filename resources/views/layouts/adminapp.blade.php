@@ -213,9 +213,9 @@
                                 <a href="#"><i class="mdi mdi-layers"></i>Department</a>
                                 <ul class="submenu">
                                     <li><a href="{{ route('admin') }}">Admin</a></li>
-                                    <li><a href="{{ route('student') }}">Student</a></li>
+                                    <li><a href="{{ route('student.pp') }}">Student</a></li>
                                     <li><a href="{{ route('teacher') }}">Teacher</a></li>
-                                    <li><a href="{{ route('client') }}">Client</a></li>
+                                    <!-- <li><a href="{{ route('client') }}">Client</a></li> -->
                                 </ul>
                             </li>
 
@@ -320,21 +320,12 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-google-pages"></i>Registration</a>
+                                <a href="#"><i class="mdi mdi-google-pages"></i>Class & Subject</a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
-                                            <li><a href="pages-login.html">Login</a></li>
-                                            <li><a href="pages-register.html">Register</a></li>
-                                            <li><a href="pages-recoverpw.html">Recover Password</a></li>
-                                            <li><a href="pages-lock-screen.html">Lock Screen</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><a href="pages-blank.html">Blank Page</a></li>
-                                            <li><a href="pages-404.html">Error 404</a></li>
-                                            <li><a href="pages-500.html">Error 500</a></li>
+                                            <li><a href="{{ route('class') }}">Class</a></li>
+                                            <li><a href="{{ route('subject') }}">Subject</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -381,7 +372,6 @@
 </html>
  <!-- jQuery  -->
        <script src="http://127.0.0.1:8000/assets/js/jquery.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/js/popper.min.js"></script>
         <script src="http://127.0.0.1:8000/assets/js/bootstrap.min.js"></script>
         <script src="http://127.0.0.1:8000/assets/js/modernizr.min.js"></script>
         <!-- <script src="assets/js/waves.js')"></script> -->
