@@ -15,15 +15,15 @@
                                     <li class="breadcrumb-item active">Datatable</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Designers</h4>
+                            <h4 class="page-title">TEACHERS ROLES</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title end breadcrumb -->
 
                 <div class="row"> 
-                    <a href="{{ route('registration') }}"><button type="button" class="btn btn-googleplus m-b-10 m-l-10 waves-effect waves-light">
-                    <i class="fa fa-google-plus m-r-5"></i> Add Designers+
+                    <a href="{{ route('feculty-registration') }}"><button type="button" class="btn btn-googleplus m-b-10 m-l-10 waves-effect waves-light">
+                    <i class="fa fa-google-plus m-r-5"></i> ADD TEACHERS +
                     </button></a>
                     <div class="col-12">
                         <div class="card">
@@ -37,11 +37,16 @@
                                         <table id="tech-companies-1" class="table  table-striped">
                                             <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>email</th>
-                                                <th>role</th>
-                                                <th>created_at</th>
-                                                <th>updated_at</th>
+                                                <th>ID</th>
+                                                <th>NAME</th>
+                                                <th>IMAGES</th>
+                                                <th>EMAIL</th>
+                                                <th>CONTACT</th>
+                                                <th>ADDRESS</th>
+                                                <th>CNIC</th>
+                                                <th>GENDER</th>
+                                                <th>DOB</th>
+                                                <th>STATUS</th>
                                                 <th>Edit/Delete/View</th>
                                             </tr>
                                             </thead>
@@ -49,11 +54,18 @@
 
                                                 @foreach($teacher as $row)
                                                 <tr>
-                                                <td>{{ $row->name }}</td>
-                                                <td>{{ $row->email }}</td>
-                                                <td>{{ $row->role }}</td>
-                                                <td>{{ $row->created_at }}</td>
-                                                <td>{{ $row->updated_at }}</td>
+                                                       <td>{{ $row->id }}</td>
+                                                       <td><img src="/storage/studentImages/{{ $row->profile_photo_path }}" style="width:40px; height:40px; border-radius: 100px;"></td>
+                                                        <td>{{ $row->name }}</td>
+                                                        <td>{{ $row->email }}</td>
+                                                        <td>{{ $row->contact }}</td>
+                                                        <td>{{ $row->address }}</td>
+                                                        <td>{{ $row->cnic }}</td>
+                                                        <td>{{ $row->gender }}</td>
+                                                        <td>{{ $row->DOB }}</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-primary btn-sm">{{ $row->status }}</button>
+                                                        </td>
                                                 <td>
                                                     <a href="{{ route('teacher.eidt.view' , ['id' => $row->id]) }}" type="button" class="tabledit-edit-button btn btn-sm btn-info" style="float: none; margin: 5px;"><span class="ti-pencil"></span></a>
                                                     <a href="#" type="button" class="tabledit-edit-button btn btn-sm btn-danger" style="float: none; margin: 5px;"><span class="ti-trash"></span></a>

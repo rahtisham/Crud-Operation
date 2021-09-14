@@ -21,7 +21,7 @@ function myFunction() {
                                     <li class="breadcrumb-item active">Registration</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">STUDENT REGISTRATION</h4>
+                            <h4 class="page-title">FECULTY REGISTRATION</h4>
                         </div>
                     </div>
                 </div>
@@ -34,9 +34,9 @@ function myFunction() {
                                  <div class="alert alert-success">
                                     <p><b>{{ \Session::get('success') }}</b></p>
                                  </div>
-                                 @endif
+                                @endif
                                     
-                          <form method="post" action="{{ route('student.registered') }}" enctype="multipart/form-data">
+                          <form method="post" action="{{ route('user.registered') }}">
                               @csrf
                             <div class="card-body">
 
@@ -45,9 +45,10 @@ function myFunction() {
                                     <div class="col-sm-10">
                                        <select id="" name="category" class="form-control">
                                             <option>Select</option>
-                                            <option value="Student" >Student</option>
+                                            <option value="Admin">Admin</option>
+                                            <option value="Teacher">Teacher</option>
                                         </select>
-                                        @error('role')
+                                        @error('category')
                                         <span class="text-danger"> {{ $message }}</span>
                                         @enderror
                                     </div>
@@ -75,6 +76,15 @@ function myFunction() {
                                     <div class="col-sm-10">
                                         <input class="form-control" type="text" name="address" id="example-email-input">
                                         @error('address')
+                                        <span class="text-danger"> {{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row" id="myDIV">
+                                    <label for="example-email-input"  class="col-sm-2 col-form-label">CNIC</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="cnic" type="text" id="example-email-input">
+                                        @error('cnic')
                                         <span class="text-danger"> {{ $message }}</span>
                                         @enderror
                                     </div>
@@ -131,9 +141,8 @@ function myFunction() {
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="example-search-input"  class="col-sm-2 col-form-label">Password</label>
+                                    <label for="example-search-input"  class="col-sm-2 col-form-label">File</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" name="uploadedfile" type="file"  id="example-search-input">
                                         @error('uploadedfile')
@@ -141,7 +150,6 @@ function myFunction() {
                                         @enderror
                                     </div>
                                 </div>
-
                                 <button  type="submit" class="btn btn-primary text-right">REGISTRATION FORM</button>
                             </div>
                             </form>

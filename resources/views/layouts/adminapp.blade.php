@@ -9,14 +9,14 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+  <!-- DataTables -->
+  <link href="http://127.0.0.1:8000/assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
         <!-- Styles -->
         <!-- <link rel="stylesheet" href="{{ mix('css/app.css"> -->
         <link href="http://127.0.0.1:8000/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
-        <link href="http://127.0.0.1:8000/assets/plugins/fullcalendar/vanillaCalendar.css" rel="stylesheet" type="text/css"  />
-        
-        <link href="http://127.0.0.1:8000/assets/plugins/morris/morris.css" rel="stylesheet">
-
+      
+  
 
         <link href="http://127.0.0.1:8000/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="http://127.0.0.1:8000/assets/css/icons.css" rel="stylesheet" type="text/css">
@@ -65,10 +65,10 @@
                                     <img src="http://127.0.0.1:8000/assets/images/flags/us_flag.jpg" class="ml-2" height="16" alt=""/>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right language-switch">
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/italy_flag.jpg" alt="" height="16"/><span> Italian </span></a>
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="16"/><span> French </span></a>
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="16"/><span> Spanish </span></a>
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/russia_flag.jpg" alt="" height="16"/><span> Russian </span></a>
+                                    <a class="dropdown-item" href="#"><img src="http://127.0.0.1:8000/assets/images/flags/italy_flag.jpg" alt="" height="16"/><span> Italian </span></a>
+                                    <a class="dropdown-item" href="#"><img src="http://127.0.0.1:8000/assets/images/flags/french_flag.jpg" alt="" height="16"/><span> French </span></a>
+                                    <a class="dropdown-item" href="#"><img src="http://127.0.0.1:8000/assets/images/flags/spain_flag.jpg" alt="" height="16"/><span> Spanish </span></a>
+                                    <a class="dropdown-item" href="#"><img src="http://127.0.0.1:8000/assets/images/flags/russia_flag.jpg" alt="" height="16"/><span> Russian </span></a>
                                 </div>
                             </li>
 
@@ -85,19 +85,19 @@
 
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon"><img src="assets/images/users/avatar-2.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
+                                        <div class="notify-icon"><img src="http://127.0.0.1:8000/assets/images/users/avatar-2.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
                                         <p class="notify-details"><b>Charles M. Jones</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
                                     </a>
 
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon"><img src="assets/images/users/avatar-3.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
+                                        <div class="notify-icon"><img src="http://127.0.0.1:8000/assets/images/users/avatar-3.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
                                         <p class="notify-details"><b>Thomas J. Mimms</b><small class="text-muted">You have 87 unread messages</small></p>
                                     </a>
 
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon"><img src="assets/images/users/avatar-4.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
+                                        <div class="notify-icon"><img src="http://127.0.0.1:8000/assets/images/users/avatar-4.jpg" alt="user-img" class="img-fluid rounded-circle"> </div>
                                         <p class="notify-details"><b>Luis M. Konrad</b><small class="text-muted">It is a long established fact that a reader will</small></p>
                                     </a>
 
@@ -210,34 +210,45 @@
                             </li>
 
                             <li class="has-submenu ">
-                                <a href="#"><i class="mdi mdi-layers"></i>Department</a>
+                                <a href="#"><i class="mdi mdi-layers"></i>Users</a>
                                 <ul class="submenu">
                                     <li><a href="{{ route('admin') }}">Admin</a></li>
-                                    <li><a href="{{ route('student.pp') }}">Student</a></li>
                                     <li><a href="{{ route('teacher') }}">Teacher</a></li>
+                                    <li><a href="{{ route('student.pp') }}">Student</a></li>
+                                    <li><a href="#">Accountant</a></li>
+                                    <li><a href="#">Librarian</a></li>
                                     <!-- <li><a href="{{ route('client') }}">Client</a></li> -->
                                 </ul>
                             </li>
 
-                            <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-bullseye"></i>User Interface</a>
+                            <li class="has-submenu ">
+                                <a href="#"><i class="mdi mdi-layers"></i>Assign</a>
+                                <ul class="submenu">
+                                    <li><a href="{{ route('Class.Routine') }}">Assign Teacher's Class</a></li>
+                                    <li><a href="{{ route('student-class-add-view') }}">Assign Student's Class </a></li>
+                                    <!-- <li><a href="{{ route('client') }}">Client</a></li> -->
+                                </ul>
+                            </li>
+
+                            <!-- <li class="has-submenu">
+                                <a href="#"><i class="mdi mdi-bullseye"></i>Class Room</a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
-                                            <li><a href="ui-buttons.html">Buttons</a></li>
-                                            <li><a href="ui-cards.html">Cards</a></li>
-                                            <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                                            <li><a href="ui-modals.html">Modals</a></li>
-                                            <li><a href="ui-images.html">Images</a></li>
-                                            <li><a href="ui-alerts.html">Alerts</a></li>
+                                            <li><a href="#">Class 1</a></li>
+                                            <li><a href="#">Class 2</a></li>
+                                            <li><a href="#">Class 3</a></li>
+                                            <li><a href="#">Class 4</a></li>
+                                            <li><a href="#">Class 5</a></li>
+                                            <li><a href="#">Class 6</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <ul>
-                                            <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                                            <li><a href="ui-dropdowns.html">Dropdowns</a></li>
-                                            <li><a href="ui-lightbox.html">Lightbox</a></li>
-                                            <li><a href="ui-navs.html">Navs</a></li>
+                                            <li><a href="#">Class 7</a></li>
+                                            <li><a href="#">Class 8</a></li>
+                                            <li><a href="#">Class 9</a></li>
+                                            <li><a href="#">Class 10</a></li>
                                             <li><a href="ui-pagination.html">Pagination</a></li>
                                             <li><a href="ui-popover-tooltips.html">Popover & Tooltips</a></li>
                                         </ul>
@@ -253,11 +264,11 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
 
-                            <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-gauge"></i>Components</a>
-                                <ul class="submenu">
+                            <!-- <li class="has-submenu">
+                                <a href="#"><i class="mdi mdi-gauge"></i>Subject Assign</a> -->
+                                <!-- <ul class="submenu">
                                     <li class="has-submenu">
                                         <a href="#">Forms</a>
                                         <ul class="submenu">
@@ -312,11 +323,22 @@
                                             <li><a href="maps-vector.html"> Vector Map</a></li>
                                         </ul>
                                     </li>
-                                </ul>
-                            </li>
+                                </ul> -->
+                            <!-- </li> -->
 
-                            <li class="has-submenu">
-                                <a href="{{ route('registration') }}"><i class="mdi mdi-google-pages"></i>Registration</a>
+                            <li class="has-submenu ">
+                                <a href="#"><i class="mdi mdi-layers"></i>Academic</a>
+                                <ul class="submenu">
+                                    <li><a href="{{ route('Class.Routine') }}">Class Routine</a></li>
+                                    <li><a href="{{ route('Class.Room') }}">Class Room</a></li>
+                                    <li><a href="{{ route('class') }}">Class</a></li>
+                                    <li><a href="{{ route('subject') }}">Subject</a></li>
+                                    <li><a href="{{ route('Department') }}">Department</a></li>
+                                    <li><a href="#">Syllabus </a></li>
+                                    <li><a href="#">Daily Attendence</a></li>
+                                    <li><a href="#">Event Calender </a></li>
+                                    <!-- <li><a href="{{ route('client') }}">Client</a></li> -->
+                                </ul>
                             </li>
 
                             <li class="has-submenu">
@@ -324,8 +346,8 @@
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
-                                            <li><a href="{{ route('class') }}">Class</a></li>
-                                            <li><a href="{{ route('subject') }}">Subject</a></li>
+                                            <li><a href="{{ route('class') }}">Add Class</a></li>
+                                            <li><a href="{{ route('subject') }}">Add Subject</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -334,8 +356,9 @@
                             <li class="has-submenu ">
                                 <a href="#"><i class="mdi mdi-layers"></i>{{ Auth::user()->name}}</a>
                                 <ul class="submenu">
-                                    <li><a href="#"> {{ __('Manage Account') }}</a></li>
-                                    <li><a href="{{ route('profile.show') }}">  {{ __('Profile') }}</a></li>
+                                    <li><a href="{{ route('registration') }}"> {{ __('Student Registration') }}</a></li>
+                                    <li><a href="{{ route('feculty-registration') }}"> {{ __('Feculty Registration') }}</a></li>
+                                    <li><a href="{{ route('profile.show') }}">  {{ __('Change Credential') }}</a></li>
                                     <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                     @csrf 
@@ -381,12 +404,11 @@
         <script src="http://127.0.0.1:8000/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
         
         <script src="http://127.0.0.1:8000/assets/plugins/skycons/skycons.min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/plugins/fullcalendar/vanillaCalendar.js"></script>
         <script src="http://127.0.0.1:8000/assets/plugins/raphael/raphael-min.js"></script>
-        <script src="http://127.0.0.1:8000/assets/plugins/morris/morris.min.js"></script> 
          
-        <script src="http://127.0.0.1:8000/assets/pages/dashborad.js"></script>
 
 
         <!-- App js -->
         <script src="http://127.0.0.1:8000/assets/js/app.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/bootstrap.min.js"></script>
+        <script src="http://127.0.0.1:8000/assets/css/bootstrap.min.css"></script>

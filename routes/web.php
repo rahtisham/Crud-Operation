@@ -30,6 +30,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['middleware' => 'auth'] , function(){
 
+  Route::get('admin/feculty-registration', function () {
+    return view('admin.feculty-registration');
+  })->name('feculty-registration');
+
+  Route::get('admin/registration' , [AdminController::class , 'Registration'])->name('registration');
+  Route::post('admin/user-registered' , [AdminAddController::class , 'user_Registered'])->name('user.registered');
+  Route::post('admin/student-registered' , [AdminAddController::class , 'student_Registered'])->name('student.registered');
+
   Route::get('authvalue' , [AdminController::class , 'adminDashboard'])->name('authvalue');
 
   Route::get('admin/admin' , [AdminController::class , 'Admin'])->name('admin');
@@ -37,6 +45,7 @@ Route::group(['middleware' => 'auth'] , function(){
   
   Route::get('admin/student' , [AdminController::class , 'Student'])->name('student.pp');
   Route::get('admin/student-edit-view/{id}/edit' , [AdminUpdateController::class , 'Student_edit_view'])->name('student.edit.view');
+  Route::post('admin/student-edit/{id}/edit' , [AdminUpdateController::class , 'Student_edit_listning'])->name('update.student.listing');
   Route::get('admin/student/{id}/delete' , [AdminController::class , 'Student_delete'])->name('student.delete');
   // This is Student view route
 
@@ -61,10 +70,29 @@ Route::group(['middleware' => 'auth'] , function(){
    Route::post('admin/subject' , [AdminAddController::class , 'add_Subjects_listing'])->name('Add.Subject');
    // This is Class view route
 
+   
+   Route::get('admin/class-routine' , [AdminController::class , 'Class_routine'])->name('Class.Routine');
+   Route::get('admin/fetch' , [AdminController::class , 'fetch'])->name('dependentDropdown');
+   Route::post('admin/getSubject' , [AdminController::class , 'get_Subject'])->name('getSubject');
+  //  Route::post('dynamic_dependent/fetch', 'DynamicDependent@fetch')->name('dynamicdependent.fetch');
+  // Class Routine
 
   
-  Route::get('admin/registration' , [AdminController::class , 'Registration'])->name('registration');
-   // This is registration view route
+  Route::get('admin/class-room' , [AdminController::class , 'Class_room'])->name('Class.Room');
+  Route::post('admin/add-class-room' , [AdminAddController::class , 'add_Class_Room'])->name('add.class.room');
+  // Class rooms
+
+  
+  Route::get('admin/department' , [AdminController::class , 'Department'])->name('Department');
+  Route::post('admin/add-department' , [AdminAddController::class , 'add_Department'])->name('add.Department');
+  // Add Department to set their roles
+  
+
+   
+  Route::get('admin/student-class-add-view' , [AdminController::class , 'student_Class_add_View'])->name('student-class-add-view');
+  Route::post('admin/student-class-add' , [AdminAddController::class , 'student_Class_add'])->name('student-class-add');
+  Route::get('admin/class-Active/{id}/edit' , [AdminUpdateController::class , 'student_Registered_with_class'])->name('class-Active');
+  // This is student class add view route
 
 
   Route::group(['middleware' => 'AuthCheck:admin' , 'prefix' => 'admin' , 'as' => 'admin.'], function(){
