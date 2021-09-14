@@ -155,12 +155,10 @@ class AdminController extends Controller
 		return view('admin.dependent', compact('classData'));
      
     }
-    public function get_Subject()
+    public function get_Subject(Request $request)
     {
         $cid=$request->post('cid');
-        dd($cid);
-		// $state=DB::table('state')->where('country',$cid)->orderBy('state','asc')->get();
-        $classData = subject::where('classID',$cid)->orderBy('subject','asc')->get();
+        $classData = subjects::where('classID',$cid)->orderBy('subject','asc')->get();
         echo $classData;
 		$html='<option value="">Select State</option>';
 		foreach($classData as $list){

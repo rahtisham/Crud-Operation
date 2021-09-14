@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAddController;
 use App\Http\Controllers\AdminUpdateController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +88,8 @@ Route::group(['middleware' => 'auth'] , function(){
   Route::post('admin/add-department' , [AdminAddController::class , 'add_Department'])->name('add.Department');
   // Add Department to set their roles
   
-
+  Route::get('ajax/request', [StudentController::class, 'ajaxRequest'])->name('ajax.request');
+  Route::post('ajax/request/store', [StudentController::class, 'ajaxRequestStore'])->name('ajax.request.store');
    
   Route::get('admin/student-class-add-view' , [AdminController::class , 'student_Class_add_View'])->name('student-class-add-view');
   Route::post('admin/student-class-add' , [AdminAddController::class , 'student_Class_add'])->name('student-class-add');
@@ -105,5 +107,7 @@ Route::group(['middleware' => 'auth'] , function(){
   });
   // This route Developer can access to give right 
 
+
+ 
 
 });
