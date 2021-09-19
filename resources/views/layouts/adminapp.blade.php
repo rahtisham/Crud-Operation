@@ -215,8 +215,8 @@
                                     <li><a href="{{ route('admin') }}">Admin</a></li>
                                     <li><a href="{{ route('teacher') }}">Teacher</a></li>
                                     <li><a href="{{ route('student.pp') }}">Student</a></li>
-                                    <li><a href="#">Accountant</a></li>
-                                    <li><a href="#">Librarian</a></li>
+                                    <!-- <li><a href="#">Accountant</a></li>
+                                    <li><a href="#">Librarian</a></li> -->
                                     <!-- <li><a href="{{ route('client') }}">Client</a></li> -->
                                 </ul>
                             </li>
@@ -224,8 +224,8 @@
                             <li class="has-submenu ">
                                 <a href="#"><i class="mdi mdi-layers"></i>Assign</a>
                                 <ul class="submenu">
-                                    <li><a href="{{ route('Class.Routine') }}">Assign Teacher's Class</a></li>
-                                    <li><a href="{{ route('student-class-add-view') }}">Assign Student's Class </a></li>
+                                    <li><a href="{{ route('student-class-add-view') }}">Student's Class </a></li>
+                                    <li><a href="{{ route('Class.Routine') }}">Class Routine</a></li>
                                     <!-- <li><a href="{{ route('client') }}">Client</a></li> -->
                                 </ul>
                             </li>
@@ -329,14 +329,14 @@
                             <li class="has-submenu ">
                                 <a href="#"><i class="mdi mdi-layers"></i>Academic</a>
                                 <ul class="submenu">
-                                    <li><a href="{{ route('Class.Routine') }}">Class Routine</a></li>
+                                    <!-- <li><a href="{{ route('Class.Routine') }}">Class Routine</a></li> -->
                                     <li><a href="{{ route('Class.Room') }}">Class Room</a></li>
                                     <li><a href="{{ route('class') }}">Class</a></li>
                                     <li><a href="{{ route('subject') }}">Subject</a></li>
                                     <li><a href="{{ route('Department') }}">Department</a></li>
-                                    <li><a href="#">Syllabus </a></li>
+                                    <!-- <li><a href="#">Syllabus </a></li>
                                     <li><a href="#">Daily Attendence</a></li>
-                                    <li><a href="#">Event Calender </a></li>
+                                    <li><a href="#">Event Calender </a></li> -->
                                     <!-- <li><a href="{{ route('client') }}">Client</a></li> -->
                                 </ul>
                             </li>
@@ -410,5 +410,6 @@
 
         <!-- App js -->
         <script src="http://127.0.0.1:8000/assets/js/app.js"></script>
+        <script src="http://127.0.0.1:8000/assets/js/ajax.js"></script>
         <script src="http://127.0.0.1:8000/assets/js/bootstrap.min.js"></script>
         <script src="http://127.0.0.1:8000/assets/css/bootstrap.min.css"></script>

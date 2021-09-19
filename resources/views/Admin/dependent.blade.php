@@ -49,13 +49,14 @@
 		jQuery(document).ready(function(){
 			jQuery('#classOne').change(function(){
 				let cid=jQuery(this).val();
-				// alert(cid);
-				// jQuery('#section').html('<option value="">Select City</option>')
+				
+				 jQuery('#section').html('<option value="">Select City</option>')
 				jQuery.ajax({
 					url:"{{ route('getSubject') }}",
 					type:'post',
 					data:'cid='+cid+'&_token={{csrf_token()}}',
 					success:function(result){
+						
 						jQuery('#subject').html(result);
 					}
 				});

@@ -8,12 +8,14 @@ use Illuminate\Support\Facades\Hash;
 use Image;
 use Storage;
 use Crypt;
+use Validator;
 use App\Models\ClassAdd;
 use App\Models\subjects;
 use App\Models\registered;
 use App\Models\AddStudentClass;
 use App\Models\department;
 use App\Models\classroom;
+use App\Models\classRoutine;
 
 class AdminAddController extends Controller
 {
@@ -270,11 +272,67 @@ class AdminAddController extends Controller
 
         ]);
 
+        if($classRoom)
+        {
+
         $classRoom->save();
 
         return back()->with('success' , 'Class Room has been added');
+        }
+        else
+        {
+          
+        return back()->with('error' , 'Input fields are require');
+        }
 
       }
+
+      public function Add_class_routine(Request $request)
+      {
+        $validation = $this->Validate($request, [
+
+          'classSelect' => 'required',
+          'subject' => 'required',
+          'section' => 'required',
+          'teacher'  => 'required',
+          'classroom' => 'required',
+          'days' => 'required',
+          'statingHour' => 'required',
+          'startingMinut' => 'required',
+          'endingHour' => 'required',
+          'engdingMinut' => 'required'
+
+        ]);
+
+        if ($validation->fails())
+        {
+          return response()->json(['error'=>'Class Routine Has Been Submited']);
+        }
+
+      
+        $classRoutineAddField = new classRoutine();
+
+        // Lesson::create($request->all());
+        $classRoutineAddField->class           =  $request->get('classSelect');
+        $classRoutineAddField->subject         =  $request->get('subject');
+        $classRoutineAddField->section         =  $request->get('section');
+        $classRoutineAddField->teacher         =  $request->get('teacher');
+        $classRoutineAddField->classRoom       =  $request->get('classroom');
+        $classRoutineAddField->days            =  $request->get('days');
+        $classRoutineAddField->statingHour     =  $request->get('statingHour');
+        $classRoutineAddField->startingMinut   =  $request->get('startingMinut');
+        $classRoutineAddField-> endingHour     =  $request->get('endingHour');
+        $classRoutineAddField->endingMinut     =  $request->get('engdingMinut');
+
+        
+          $classRoutineAddField->save();
+
+          return response()->json(['success'=>'Class Routine Has Been Submited']);
+        
+
+      }
+
+      
 
 
 }

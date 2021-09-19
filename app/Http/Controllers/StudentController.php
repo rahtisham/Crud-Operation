@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Validator;
 
 class StudentController extends Controller
 {
@@ -30,7 +31,10 @@ class StudentController extends Controller
             'email' => 'required|email',
             'address' => 'required',
         ]);
-
+        if ($validator->fails()){
+            $errors = $validator->errors();
+            echo $errors;
+        }
             $clientInformation = new Student;
 
             $clientInformation->password = $request->get('password');
@@ -42,7 +46,6 @@ class StudentController extends Controller
 
             return response()->json(['success'=>'Added new records.']);
             
-        
 
     }
 }

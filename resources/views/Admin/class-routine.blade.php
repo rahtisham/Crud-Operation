@@ -1,4 +1,8 @@
 <x-adminapp-layout>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <div class="wrapper">
         <div class="container-fluid">
                    <!-- Page-Title -->
@@ -26,18 +30,24 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
-                                @csrf
+                            <form>
+                                
                                 <div class="card-body">
 
                                     <div class="m-t-20">
-                                        <select name="class" id="class" class="select2 form-control mb-3 custom-select class" data-dependent="section">
+                                        <select name="classSelect" id="classSelect" required="" class="select2 form-control mb-3 custom-select class" data-dependent="section">
                                         <option>Select Class</option>
                                         @foreach($classAssignToTeacher as $classAssignToTeacher)
                                         <option value="{{ $classAssignToTeacher->className }}">{{ $classAssignToTeacher->className }}</option>
                                         @endforeach
                                         </select> 
+                                        <span id="classSelect"></span>
+                                        @error('classSelect')
+                                        <span class="text-danger"> {{ $message }}</span>
+                                        @enderror
                                     </div>
+
+                                    <input type="hidden" id="token" value="{{ csrf_token() }}">
 
                                     <div class="m-t-20">
                                         <select name="section" id="section" class="select2 form-control mb-3 custom-select dynamic" data-dependent="subject">
@@ -49,72 +59,141 @@
 
                                     <div class="m-t-20">
                                         <select name="subject" id="subject" class="select2 form-control mb-3 custom-select dynamic" data-dependent="city">
-                                        <option value=""></option>
+                                        <option value="">Select Subject</option>
                                         </select> 
-                                        {{ csrf_field() }}
                                     </div>
 
                                     <div class="m-t-20">
-                                        <select name="classNumber" class="select2 form-control mb-3 custom-select">
+                                        <select name="teacher" id="teacher" class="select2 form-control mb-3 custom-select">
                                         <option>Select Teacher</option>
                                         @foreach($TeacherClassAssign as $TeacherClassAssign)
-                                        <option value="{{ $TeacherClassAssign->category }}">{{ $TeacherClassAssign->name }}</option>
+                                        <option value="{{ $TeacherClassAssign->name }}">{{ $TeacherClassAssign->name }}</option>
                                         @endforeach
                                         </select> 
                                     </div>
 
                                     <div class="m-t-20">
-                                        <select name="classNumber" class="select2 form-control mb-3 custom-select">
+                                        <select name="classroom" id="classroom" class="select2 form-control mb-3 custom-select">
                                         <option>Class Room</option>
-                                        <option value="A"></option>
-                                        <option value="B"></option>
+                                        @foreach($classRoom as $classRooms)
+                                        <option value="{{ $classRooms->classRoom }}">{{ $classRooms->classRoom }}</option>
+                                        @endforeach
                                         </select> 
                                     </div>
 
                                     <div class="m-t-20">
-                                        <select name="classNumber" class="select2 form-control mb-3 custom-select">
+                                        <select name="days" id="days" class="select2 form-control mb-3 custom-select">
                                         <option>Select a Day</option>
-                                        <option value="A">Monday</option>
-                                        <option value="B">Tuesday</option>
-                                        <option value="B">Wednesday</option>
-                                        <option value="B">Thusday</option>
-                                        <option value="B">Friday</option>
-                                        <option value="B">Saturday</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thusday">Thusday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
                                         </select> 
                                     </div>
 
                                     <div class="m-t-20">
-                                        <select name="classNumber" class="select2 form-control mb-3 custom-select">
+                                        <select name="statingHour" id="statingHour" class="select2 form-control mb-3 custom-select">
                                         <option>Starting Hour</option>
-                                        <option value="A">Monday</option>
+                                        <option value="12 AM">12 AM</option>
+                                        <option value="1 AM">1 AM</option>
+                                        <option value="2 AM">2 AM</option>
+                                        <option value="3 AM">3 AM</option>
+                                        <option value="4 AM">4 AM</option>
+                                        <option value="5 AM">5 AM</option>
+                                        <option value="6 AM">6 AM</option>
+                                        <option value="7 AM">7 AM</option>
+                                        <option value="8 AM">8 AM</option>
+                                        <option value="9 AM">9 AM</option>
+                                        <option value="10 AM">10 AM</option>
+                                        <option value="11 AM">11 AM</option>
+                                        <option value="12 PM">12 PM</option>
+                                        <option value="1 PM">1 PM</option>
+                                        <option value="2 PM">2 PM</option>
+                                        <option value="3 PM">3 PM</option>
+                                        <option value="4 PM">4 PM</option>
+                                        <option value="5 PM">5 PM</option>
+                                        <option value="6 PM">6 PM</option>
+                                        <option value="7 PM">7 PM</option>
+                                        <option value="8 PM">8 PM</option>
+                                        <option value="9 PM">9 PM</option>
+                                        <option value="10 PM">10 PM</option>
+                                        <option value="11 PM">11 PM</option>
                                         </select> 
                                     </div>
 
                                     <div class="m-t-20">
-                                        <select name="classNumber" class="select2 form-control mb-3 custom-select">
+                                        <select name="startingMinut" id="startingMinut" class="select2 form-control mb-3 custom-select">
                                         <option>Ending Minuts</option>
-                                        <option value="A">Monday</option>
-                                        <option value="B">Tuesday</option>
+                                        <option value="0">0</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
                                         </select> 
                                     </div>
 
                                     <div class="m-t-20">
-                                        <select name="classNumber" class="select2 form-control mb-3 custom-select" required>
-                                        <option>Starting Hour</option>
-                                        <option value="A">Monday</option>
+                                        <select name="endingHour" id="endingHour" class="select2 form-control mb-3 custom-select" required>
+                                        <option>Ending Hour</option>
+                                        <option value="12 AM">12 AM</option>
+                                        <option value="1 AM">1 AM</option>
+                                        <option value="2 AM">2 AM</option>
+                                        <option value="3 AM">3 AM</option>
+                                        <option value="4 AM">4 AM</option>
+                                        <option value="5 AM">5 AM</option>
+                                        <option value="6 AM">6 AM</option>
+                                        <option value="7 AM">7 AM</option>
+                                        <option value="8 AM">8 AM</option>
+                                        <option value="9 AM">9 AM</option>
+                                        <option value="10 AM">10 AM</option>
+                                        <option value="11 AM">11 AM</option>
+                                        <option value="12 PM">12 PM</option>
+                                        <option value="1 PM">1 PM</option>
+                                        <option value="2 PM">2 PM</option>
+                                        <option value="3 PM">3 PM</option>
+                                        <option value="4 PM">4 PM</option>
+                                        <option value="5 PM">5 PM</option>
+                                        <option value="6 PM">6 PM</option>
+                                        <option value="7 PM">7 PM</option>
+                                        <option value="8 PM">8 PM</option>
+                                        <option value="9 PM">9 PM</option>
+                                        <option value="10 PM">10 PM</option>
+                                        <option value="11 PM">11 PM</option>
                                         </select> 
                                     </div>
 
                                     <div class="m-t-20">
-                                        <select name="classNumber" class="select2 form-control mb-3 custom-select">
+                                        <select name="engdingMinut" id="engdingMinut" class="select2 form-control mb-3 custom-select">
                                         <option>Ending Minuts</option>
-                                        <option value="A">Monday</option>
+                                        <option value="0">0</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
                                         </select> 
                                     </div>
                                     
                                     <br>
                                     <span class="input-group-append">
-                                    <input type="submit" id="check-minutes" value="CLASS ROUTINE" class="btn btn-block btn-secondary"></input>
+                                    <button type="submit" class="btn btn-block btn-secondary btn-classRoutin">CLASS ROUTINE</button>
                                     </span>   
                                 </div> 
                             </form>   
@@ -142,15 +221,34 @@
                                             <div class="dataTables_length" id="basic-datatable_length"><label>Show <select name="basic-datatable_length" aria-controls="basic-datatable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="basic-datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="basic-datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><div style="position: absolute; height: 1px; width: 0px; overflow: hidden;"><input type="text" tabindex="0"></div><table id="basic-datatable" class="table table-striped dt-responsive dataTable no-footer dtr-inline" width="100%" role="grid" aria-describedby="basic-datatable_info" style="width: 100%; position: relative;">
                                         <thead>
                                             <tr style="background-color: #313a46; color: #ababab; text-align: center;" role="row"><th class="sorting_asc">ID</th>
-                                            <th class="sorting" rowspan="1">Class</th>
+                                            <th class="sorting" rowspan="1">CLASS</th>
+                                            <th class="sorting" rowspan="1">SUBJECT</th>
+                                            <th class="sorting" rowspan="1">SECTION</th>
+                                            <th class="sorting" rowspan="1">TEACHER</th>
+                                            <th class="sorting" rowspan="1">ROOM NO</th>
+                                            <th class="sorting" rowspan="1">DAYS</th>
+                                            <th class="sorting" rowspan="1">STARTING HOURS</th>
+                                            <th class="sorting" rowspan="1">STARTING MINUTS</th>
+                                            <th class="sorting" rowspan="1">ENDING HOURS</th>
+                                            <th class="sorting" rowspan="1">ENDING MINUTS</th>
                                             <th class="sorting" rowspan="1">Option</th>
                                         </tr>
                                         
                                         </thead>
                                         <tbody>	
+                                            @foreach($classRoutine as $ViewclassRoutine)
                                                 <tr role="row" class="odd" style="text-align: center;">
-                                                    <td tabindex="0" class="sorting_1">Under Construction</td>
-                                                    <td tabindex="0" class="sorting_1">Under Construction</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->classRoutine_id }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->class }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->subject }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->section }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->teacher }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->classRoom }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->days }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->statingHour }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->startingMinut }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->endingHour }}</td>
+                                                    <td tabindex="0" class="sorting_1">{{ $ViewclassRoutine->endingMinut }}</td>
                                                     
                                                     <td>
                                                         <div class="dropdown text-center">
@@ -164,6 +262,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                             @endforeach   
                                         </tbody>
                                     </table>
                                 </div>
@@ -181,40 +280,3 @@
 
 </x-adminapp-layout>
 
-<script>
-jQuery(document).ready(function(){
-    jQuery('.class').change(function(){
-
-    let testing = jQuery(this).val();
-    alert(testing);
-
-    jQuery.ajax({
-        url: 'dependentDropdown',
-        type: 'post',
-        data: 'testing=' + testing,
-
-        success:function(result){
-            jQuery.('#section').html(result);
-        }
-
-    });
-  });
-
-//   jQuery(document).ready(function(){
-// 			jQuery('#class').change(function(){
-// 				let cid=jQuery(this).val();
-// 				jQuery('#section').html('<option value="">Select City</option>')
-// 				jQuery.ajax({
-//                     alert('fsdf');
-// 					url:'/dependentDropdown',
-// 					type:'post',
-// 					data:'cid='+cid+'&_token={{csrf_token()}}',
-// 					success:function(result){
-// 						jQuery('#state').html(result)
-// 					}
-// 				});
-// 			});
- 
-
-
-</script>

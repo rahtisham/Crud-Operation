@@ -73,6 +73,8 @@ Route::group(['middleware' => 'auth'] , function(){
 
    
    Route::get('admin/class-routine' , [AdminController::class , 'Class_routine'])->name('Class.Routine');
+   Route::post('admin/class-dependent-dropdown' , [AdminController::class , 'DependentDropdown_for_class'])->name('class-dependent-dropdown');
+   Route::post('admin/class-routine-add' , [AdminAddController::class , 'Add_class_routine'])->name('class-routine-add');
    Route::get('admin/fetch' , [AdminController::class , 'fetch'])->name('dependentDropdown');
    Route::post('admin/getSubject' , [AdminController::class , 'get_Subject'])->name('getSubject');
   //  Route::post('dynamic_dependent/fetch', 'DynamicDependent@fetch')->name('dynamicdependent.fetch');
@@ -88,13 +90,26 @@ Route::group(['middleware' => 'auth'] , function(){
   Route::post('admin/add-department' , [AdminAddController::class , 'add_Department'])->name('add.Department');
   // Add Department to set their roles
   
+
+   // store data into database using ajax
   Route::get('ajax/request', [StudentController::class, 'ajaxRequest'])->name('ajax.request');
   Route::post('ajax/request/store', [StudentController::class, 'ajaxRequestStore'])->name('ajax.request.store');
-   
+    // Ajax code ends
+
+    
+
+
   Route::get('admin/student-class-add-view' , [AdminController::class , 'student_Class_add_View'])->name('student-class-add-view');
   Route::post('admin/student-class-add' , [AdminAddController::class , 'student_Class_add'])->name('student-class-add');
   Route::get('admin/class-Active/{id}/edit' , [AdminUpdateController::class , 'student_Registered_with_class'])->name('class-Active');
   // This is student class add view route
+
+  Route::get('admin/profile' , [AdminController::class , 'profile'])->name('profile');
+  // Profile route to view all student and teacher and also admin 
+
+  
+  Route::get('admin/{id}/profiles', [AdminController::class, 'Teacher_profile'])->name('teacher.profile');
+
 
 
   Route::group(['middleware' => 'AuthCheck:admin' , 'prefix' => 'admin' , 'as' => 'admin.'], function(){

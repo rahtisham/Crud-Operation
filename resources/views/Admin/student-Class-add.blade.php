@@ -114,7 +114,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="page-title">
-                                <i class="mdi mdi-calendar-today title_icon"></i> DEPARTMENTS &nbsp;&nbsp;&nbsp;&nbsp; <button  type="button" class="btn btn-outline-primary btn-rounded alignToTitle" data-toggle="modal" data-target="#exampleModalCenter"> <i class="mdi mdi-plus"></i> Add class routine</button>
+                                <i class="mdi mdi-calendar-today title_icon"></i> STUDENT CLASS ADD &nbsp;&nbsp;&nbsp;&nbsp; <button  type="button" class="btn btn-outline-primary btn-rounded alignToTitle" data-toggle="modal" data-target="#exampleModalCenter"> <i class="mdi mdi-plus"></i> Student Class Add</button>
                                 </h4>
                             </div> <!-- end card body-->
                         </div> <!-- end card -->

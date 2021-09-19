@@ -25,12 +25,11 @@
 <body>
     <div class="container" style="margin-top: 100px;">
         <div class="row">
-                                     @if(\Session::has('success'))
-                                    <div class="alert alert-success">
-                                    <p>{{ \Session::get('success') }}</p>
-                                    </div>
-                                    @endif
-                                    <p id="subject"></p>
+                    @if(\Session::has('success'))
+                     <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
+                     </div>
+                    @endif
             <div class="offset-md-3 col-md-6 section">
                 <h2>Ajax Request Example Laravel 8</h2>
                 <div class="alert alert-success alert-block" style="display: none;">

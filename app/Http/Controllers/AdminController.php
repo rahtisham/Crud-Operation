@@ -15,6 +15,7 @@ use App\Models\registered;
 use App\Models\AddStudentClass;
 use App\Models\department;
 use App\Models\classRoom;
+use App\Models\classRoutine;
 
 class AdminController extends Controller
 {
@@ -91,6 +92,7 @@ class AdminController extends Controller
         $section = $request->section ?? '';
 
         $searchStudeent = addStudentClass::all();
+        
 
         if(!empty($section))
         {
@@ -103,13 +105,9 @@ class AdminController extends Controller
                 $studentID = registered::where('name' , '=' , 'Student')
                 ->orWhere('status' , '=' , 'Active')
                 ->orderBy('id','DESC')->limit(1)->get();
-                
-                $searchStudeent->where('class' , $class);
-               if( $searchStudeent == "Five")
-               {
-                   dd('done');
-               }
 
+                $searchStudeent->where('class' , $class);
+               
                 return view('admin.student-Class-add' , compact('studentID' , 'searchStudeent'));
                 
                 
@@ -130,10 +128,11 @@ class AdminController extends Controller
     public function Class_routine()
     {
         $TeacherClassAssign = registered::where('category' ,  'Teacher')->get();
-        
+        $classRoutine = classRoutine::all();
         $classAssignToTeacher = ClassAdd::all();
+        $classRoom = classRoom::all();
 
-        return view('admin.class-routine' , compact('classAssignToTeacher' , 'TeacherClassAssign'));
+        return view('admin.class-routine' , compact('classAssignToTeacher' , 'TeacherClassAssign' , 'classRoom' ,'classRoutine'));
     } // Assign class to teacher 
 
     public function Department()
@@ -147,6 +146,21 @@ class AdminController extends Controller
         $classRoom = classRoom::all();
         return view('admin.class-room' , compact('classRoom'));
     }
+    // Class routine function code Ends....
+
+    public function DependentDropdown_for_class(Request $request)
+    {
+      $classID = $request->post('classID');
+      $classData = subjects::where('classID' , $classID)->orderBy('subject' , 'asc')->get();
+      
+      $html ='<option value="">Section Subject</option>';
+      foreach($classData as $list){
+         $html.='<option value="'.$list->subject.'">'.$list->subject.'</option>';
+      }
+      echo $html;
+
+    }
+    // Dependent dropdown code Ends.....
 
     public function fetch(Request $request)
     {
@@ -155,6 +169,8 @@ class AdminController extends Controller
 		return view('admin.dependent', compact('classData'));
      
     }
+
+    // Dependent dropdown for testing purpuse .....
     public function get_Subject(Request $request)
     {
         $cid=$request->post('cid');
@@ -166,6 +182,19 @@ class AdminController extends Controller
 		}
 		echo $html;
     }
+
+    public function profile()
+    {
+        return view('admin/profile');
+    }
+
+    public function Teacher_profile(Request $request)
+    {
+        echo $request->get('id');
+        return view('admin.teacherProfile');
+    }
+
+ 
 
 
 

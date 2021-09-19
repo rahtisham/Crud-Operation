@@ -30,7 +30,7 @@
                                     @csrf
                                     <div class="card-body">
                                         <div class="m-t-20">
-                                        <input type="text" class="form-control" placeholder="Class Room" maxlength="25" name="classRoom" />
+                                        <input type="text" class="form-control" placeholder="Class Room" maxlength="25" name="classRoom" required/>
                                         @error('classRoom')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror

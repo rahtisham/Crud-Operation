@@ -73,7 +73,7 @@
                                                         method="post" class="d-inline" onsubmit="return confirm('Are you sure! you want to delete this user')" >
                                                         @method('delete')
                                                         @csrf
-                                                    <button type="button" class="tabledit-edit-button btn btn-sm btn-success" style="float: none; margin: 5px;"><span class="fa fa-eye-slash"></span></button>
+                                                    <a href="{{ route('teacher.profile' , ['id' => $row->id]) }}"><button type="button" class="tabledit-edit-button btn btn-sm btn-success" style="float: none; margin: 5px;"><span class="fa fa-eye-slash"></span></button></a>
                                                     </form>
                                                 </td>
                                                 </tr>
