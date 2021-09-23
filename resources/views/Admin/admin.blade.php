@@ -22,9 +22,18 @@
                 <!-- end page title end breadcrumb -->
 
                 <div class="row"> 
-                <a href="{{ route('registration') }}"> <button type="button" class="btn btn-googleplus m-b-10 m-l-10 waves-effect waves-light">
-                <i class="fa fa-google-plus m-r-5"></i> Add Admin+
-                </button></a>
+                @can('create post')
+                <a href="{{ route('registration') }}"> 
+                    <button type="button" class="btn btn-googleplus m-b-10 m-l-10 waves-effect waves-light">
+                       <i class="fa fa-google-plus m-r-5"></i> Add Admind+
+                    </button>
+                </a>
+                @endcan
+                @role('admin')
+                    I am a Admin!
+                @else
+                    I am not a Admin...
+                @endrole
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">

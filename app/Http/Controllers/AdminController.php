@@ -16,6 +16,9 @@ use App\Models\AddStudentClass;
 use App\Models\department;
 use App\Models\classRoom;
 use App\Models\classRoutine;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 
 class AdminController extends Controller
 {
@@ -25,9 +28,54 @@ class AdminController extends Controller
     // public function Developer(){
     //     return view('Developer.dashboard');
     // }
+
+
     public function adminDashboard()
     {  
-        return view('Admin.dashboard');
+
+        // Created permissions and roles using these query
+            // for database table named "Roles" & "Permission"
+
+        //  Role::create(['name' => 'Admin']);
+        // Permission::create(['name' => 'create post']);
+
+
+        // By this query...
+        // Roles ID and Permission ID inserted into database table named role_has_permission... 
+        // Its means role can permission which is assigned them
+
+        // $role = Role::findById(7);
+        // $permission = Permission::findById(3);
+        // $role->givePermissionTo($permission);
+
+
+        // This query remove roles and permission relationship... 
+
+        //  $role = Role::findById(1);
+        // $permission->revokePermissionTo($role);
+
+        // by this query given permission to permission table of database table 
+
+        // Role assigned to user with inserted medel url in the role_has_model
+        // auth()->user()->givePermissionTo('create post');
+
+        // auth()->user()->assignRole('Admin');
+
+        // return auth()->user()->getDirectPermissions();
+
+        //   return user::role('Edit')->get();
+        // $red  = $role->removeRole($role);
+        // if($red)
+        // {
+        //     echo "te";
+        // }
+        // else
+        // {
+        //     echo "no";
+        // }
+
+
+         return view('Admin.dashboard');
     }
 
     public function Admin(Request $request)

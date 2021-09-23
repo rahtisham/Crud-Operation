@@ -342,12 +342,14 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="mdi mdi-google-pages"></i>Class & Subject</a>
+                                <a href="#"><i class="mdi mdi-google-pages"></i>Roles / Permissions</a>
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
-                                            <li><a href="{{ route('class') }}">Add Class</a></li>
-                                            <li><a href="{{ route('subject') }}">Add Subject</a></li>
+                                            <li><a href="{{ route('roles') }}">Roles</a></li>
+                                            <li><a href="{{ route('permission') }}">Permission</a></li>
+                                            <li><a href="#">Asign Roles</a></li>
+                                            <li><a href="#">Asign Permission</a></li>
                                         </ul>
                                     </li>
                                 </ul>

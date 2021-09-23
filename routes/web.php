@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAddController;
 use App\Http\Controllers\AdminUpdateController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\rolePermission;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +22,26 @@ use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin', function () {
-  return view('admin');
-});
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//   Role::create(['name' => 'Edit']);
+//   return view('dashboard');
+// });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {   
+//   return view('dashboard');
+// })->name('dashboard');
 
 // Route::get('redirects' , 'App\Http\Controllers\HomeController@index');
 
 Route::group(['middleware' => 'auth'] , function(){
+
+//   Route::get('/dashboard', function () {
+//   // Role::create(['name' => 'Edit']);
+//   return view('dashboard');
+// });
+
+Route::get('admin/dashboard' , [AdminController::class , 'adminDashboard'])->name('dashboard');
 
   Route::get('admin/feculty-registration', function () {
     return view('admin.feculty-registration');
@@ -96,8 +108,6 @@ Route::group(['middleware' => 'auth'] , function(){
   Route::post('ajax/request/store', [StudentController::class, 'ajaxRequestStore'])->name('ajax.request.store');
     // Ajax code ends
 
-    
-
 
   Route::get('admin/student-class-add-view' , [AdminController::class , 'student_Class_add_View'])->name('student-class-add-view');
   Route::post('admin/student-class-add' , [AdminAddController::class , 'student_Class_add'])->name('student-class-add');
@@ -111,6 +121,15 @@ Route::group(['middleware' => 'auth'] , function(){
   Route::get('admin/{id}/profiles', [AdminController::class, 'Teacher_profile'])->name('teacher.profile');
 
 
+  Route::get('admin/roles' , [rolePermission::class , 'Roles'])->name('roles');
+  Route::post('admin/create-roles' , [rolePermission::class , 'Roles_create'])->name('create-roles');
+  // Roles Router
+  // Using this route pages show on dashboard
+
+  Route::get('admin/permission' , [rolePermission::class , 'Permission'])->name('permission');
+  Route::post('admin/create-permission' , [rolePermission::class , 'Permission_create'])->name('create-permission');
+  // Permission Router
+  // Using this route pages show on dashboard
 
   Route::group(['middleware' => 'AuthCheck:admin' , 'prefix' => 'admin' , 'as' => 'admin.'], function(){
       Route::get('/dashboardss', [App\Http\Controllers\AdminController::class , 'Admin']);
@@ -122,7 +141,7 @@ Route::group(['middleware' => 'auth'] , function(){
   });
   // This route Developer can access to give right 
 
-
+ 
  
 
-});
+});  // End of middleware 
